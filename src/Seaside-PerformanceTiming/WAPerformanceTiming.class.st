@@ -25,13 +25,28 @@ Class {
 }
 
 { #category : #convenience }
-WAPerformanceTiming class >> measure: performanceName during: aBlock [
+WAPerformanceTiming class >> measure: performanceName description: aString during: aBlock [
+	| result ms |
+	ms := Time millisecondsToRun: [ result := aBlock value ].
+	self
+		signalName: performanceName
+		description: aString
+		duration: ms milliseconds.
+	^ result
+]
 
-	self signalName: performanceName duration: (Time millisecondsToRun: aBlock) milliseconds
+{ #category : #convenience }
+WAPerformanceTiming class >> measure: performanceName during: aBlock [
+	"Measures the duration of aBlock and signal it as a timing for performanceName."
+
+	^ self measure: performanceName description: nil during: aBlock
 ]
 
 { #category : #'instance creation' }
-WAPerformanceTiming class >> name: aString [ 
+WAPerformanceTiming class >> name: aString [
+	"Case: Single metric without value.
+	Server-Timing: missedCache"
+
 	^ self new
 		tag: aString;
 		yourself
@@ -39,6 +54,9 @@ WAPerformanceTiming class >> name: aString [
 
 { #category : #'instance creation' }
 WAPerformanceTiming class >> name: aString description: descriptionString [
+	"Case: Single metric without value.
+	Server-Timing: missedCache;desc=""Description"""
+
 	^ self new
 		tag: aString;
 		messageText: descriptionString;
@@ -56,6 +74,9 @@ WAPerformanceTiming class >> name: aString description: descriptionString durati
 
 { #category : #'instance creation' }
 WAPerformanceTiming class >> name: aString duration: aDuration [
+	"Single metric with value.
+	Server-Timing: cpu;dur=2.4"
+
 	^ self new
 		tag: aString;
 		duration: aDuration;
