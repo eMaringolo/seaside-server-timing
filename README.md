@@ -45,3 +45,7 @@ But the `ZnZincServerAdaptor>>responseFrom: aRequestContext` iteration over such
 ## Counter behavior
 Each timing notification gets immediately added to the request header, so there is no _"counter"_ functionality of each indicator. It is, if you signal a `WAPerformanceTiming` with the same name twice, this will be added twice as well to the headers. So it doesn't work as a performance counter of any sort.
 
+# References
+
+* [Server-Timing Working Draft](https://www.w3.org/TR/server-timing/)
+* [Server-Timing MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Server-Timing)
