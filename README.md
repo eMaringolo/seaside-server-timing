@@ -31,7 +31,13 @@ WAPerformanceTiming measure: 'metricName' during: aBlock
 
 # Installation
 
-Load the `Seaside-PerformanceTiming` package from this repository.
+```smalltalk
+Metacello new
+	baseline: 'SeasidePerformanceTiming';
+	repository: 'github://eMaringolo/seaside-server-timing/src';
+	onConflictUseLoaded; "Just in case you have an older version of Seaside Installed"
+	load.
+```
 
 
 # Remarks
