@@ -21,7 +21,7 @@ Class {
 	#instVars : [
 		'duration'
 	],
-	#category : #'Seaside-PerformanceTiming-Timing'
+	#category : #'Seaside-PerformanceTiming-Core'
 }
 
 { #category : #convenience }

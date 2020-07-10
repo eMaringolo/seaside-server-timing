@@ -5,7 +5,7 @@ I watch for WAPerformanceTiming notifications and add them to a 'Server-Timing' 
 Class {
 	#name : #WAPerformanceTimerFilter,
 	#superclass : #WARequestFilter,
-	#category : #'Seaside-PerformanceTiming-Timing'
+	#category : #'Seaside-PerformanceTiming-Core'
 }
 
 { #category : #processing }
