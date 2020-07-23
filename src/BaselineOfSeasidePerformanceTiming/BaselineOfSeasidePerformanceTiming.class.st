@@ -17,7 +17,7 @@ BaselineOfSeasidePerformanceTiming >> baseline: spec [
 					with: [ spec requires: 'Seaside-PerformanceTiming' ].
 			spec
 				group: 'Core' with: #('Seaside-PerformanceTiming');
-				group: 'Tests' with: #('SortFunctions-Tests');
+				group: 'Tests' with: #('Seaside-Tests-PerformanceTiming');
 				group: 'default' with: #('Core' 'Tests') ]
 ]
 
